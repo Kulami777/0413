@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single Page Layout</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="libraries/p5.min.js"></script>
+  <script src="libraries/p5.sound.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #content {
+      width: 100%;
+      height: 500px;
+      border: none;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="menu"></div>
+
+  <!-- iframe：預設隱藏 -->
+  <iframe id="content" src=""></iframe>
+
+  <script src="menu.js"></script>
+  <script src="sketch.js"></script>
+
+  <script>
+    // 將 iframe 顯示並載入內容
+    function loadContent(url) {
+      const iframe = document.getElementById('content');
+      iframe.src = url;
+      iframe.style.display = 'block';
+    }
+
+    // 點擊空白處時，關掉 iframe 並收起子選單、重設箭頭
+    window.addEventListener('click', function (event) {
+      const iframe = document.getElementById('content');
+      const menu = document.getElementById('menu');
+
+      if (!iframe.contains(event.target) && !menu.contains(event.target)) {
+        // 關閉 iframe
+        iframe.style.display = 'none';
+        iframe.src = '';
+
+        // 收起所有子選單
+        const subMenus = menu.querySelectorAll('.submenu');
+        subMenus.forEach(sub => sub.style.display = 'none');
+
+        // 重設所有箭頭
+        const arrows = menu.querySelectorAll('.arrow');
+        arrows.forEach(arrow => arrow.textContent = '▶');
+      }
+    });
+  </script>
+</body>
+</html>
+<iframe id="content" width="800" height="500" style="display:none; margin-top:20px;" frameborder="0" allowfullscreen></iframe>
+
+
