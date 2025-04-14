@@ -23,7 +23,7 @@ function setupMenu() {
           { name: "第一周作業", url: "https://kulami777.github.io/20250303-2/" },
           { name: "第二周作業", url: "https://kulami777.github.io/20250317/" },
           { name: "第三周作業", url: "https://kulami777.github.io/20250324/" },
-          { name: "第四周作業", url: "https://www.et.tku.edu.tw/" }
+          { name: "第四周作業", url: "https://hackmd.io/@Woodogggggggg/B1h1qatAkl" }
         ]
       },
       { name: "測驗卷", url: "https://kulami777.github.io/20250310./" },
